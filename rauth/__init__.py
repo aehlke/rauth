@@ -24,14 +24,3 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2013 litl'
 __all__ = ['OAuth1Service', 'OAuth2Service', 'OflyService', 'OAuth1Session',
            'OAuth2Session', 'OflySession']
-
-# HACK: setup workaround for the need to have Requests at runtime
-try:
-    from .service import OAuth1Service, OAuth2Service, OflyService
-    from .session import OAuth1Session, OAuth2Session, OflySession
-
-    # placate pyflakes
-    (OAuth1Service, OAuth2Service, OflyService, OAuth1Session, OAuth2Session,
-     OflySession)
-except ImportError:  # pragma: no cover
-    pass
