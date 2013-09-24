@@ -14,7 +14,9 @@
 import os
 import sys
 
-from rauth import __version__
+about = {}
+with open("rauth/__about__.py") as fp:
+    exec(fp.read(), about)
 
 from setuptools import setup, find_packages
 
@@ -47,7 +49,7 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: Utilities']
 
 setup(name='rauth',
-      version=__version__,
+      version=about['__version__'],
       description='A Python library for OAuth 1.0/a, 2.0, and Ofly.',
       long_description=__doc__,
       author='Max Countryman',

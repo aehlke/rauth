@@ -16,11 +16,19 @@
 
 '''
 
-__title__ = 'rauth'
-__version_info__ = ('0', '6', '2')
-__version__ = '.'.join(__version_info__)
-__author__ = 'Max Countryman'
-__license__ = 'MIT'
-__copyright__ = 'Copyright 2013 litl'
 __all__ = ['OAuth1Service', 'OAuth2Service', 'OflyService', 'OAuth1Session',
            'OAuth2Session', 'OflySession']
+
+from rauth.__about__ import (__title, __version_info__, __version__, __author__,
+                             __license__, __copyright__)
+
+# HACK: setup workaround for the need to have Requests at runtime
+try:
+    from .service import OAuth1Service, OAuth2Service, OflyService
+    from .session import OAuth1Session, OAuth2Session, OflySession
+
+    # placate pyflakes
+    (OAuth1Service, OAuth2Service, OflyService, OAuth1Session, OAuth2Session,
+     OflySession)
+except ImportError:  # pragma: no cover
+    pass
