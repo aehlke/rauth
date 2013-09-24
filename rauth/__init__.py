@@ -19,7 +19,7 @@
 __all__ = ['OAuth1Service', 'OAuth2Service', 'OflyService', 'OAuth1Session',
            'OAuth2Session', 'OflySession']
 
-from rauth.__about__ import (__title, __version_info__, __version__, __author__,
+from rauth.__about__ import (__title__, __version_info__, __version__, __author__,
                              __license__, __copyright__)
 
 # HACK: setup workaround for the need to have Requests at runtime
